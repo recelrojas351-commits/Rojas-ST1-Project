@@ -198,7 +198,6 @@ main {
   margin-left: var(--sidebar-w);
   flex: 1;
   padding: 56px 64px;
-  max-width: 960px;
 }
 
 .page {

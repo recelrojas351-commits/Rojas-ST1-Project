@@ -606,6 +606,263 @@ h2.page-title {
   font-style: italic;
 }
 
+/* ---------- Welcome page ---------- */
+.welcome-center {
+  position: relative;
+  overflow: hidden;
+  margin: -56px -64px;
+  min-height: 100vh;
+  padding: 56px 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background:
+    radial-gradient(circle at 1px 1px, rgba(252, 142, 172, 0.22) 1px, transparent 0) 0 0 / 26px 26px,
+    linear-gradient(160deg, #FFF6F8 0%, var(--paper-100) 45%, #FDEEF2 100%);
+}
+
+/* Decorative layer */
+.welcome-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: .55;
+  animation: drift 18s ease-in-out infinite;
+}
+
+.blob.b1 {
+  width: 420px;
+  height: 420px;
+  background: #FFC2D4;
+  top: -120px;
+  left: -100px;
+}
+
+.blob.b2 {
+  width: 360px;
+  height: 360px;
+  background: #FCE3B0;
+  bottom: -120px;
+  right: -80px;
+  animation-delay: -6s;
+}
+
+.blob.b3 {
+  width: 280px;
+  height: 280px;
+  background: #F9B8CB;
+  top: 55%;
+  left: 62%;
+  opacity: .35;
+  animation-delay: -12s;
+}
+
+.ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(201, 162, 39, 0.35);
+  animation: spin 80s linear infinite;
+}
+
+.ring.r1 {
+  width: 560px;
+  height: 560px;
+  top: 50%;
+  left: 50%;
+  margin: -280px 0 0 -280px;
+}
+
+.ring.r2 {
+  width: 700px;
+  height: 700px;
+  top: 50%;
+  left: 50%;
+  margin: -350px 0 0 -350px;
+  border: 1px solid rgba(252, 142, 172, 0.25);
+  animation-direction: reverse;
+  animation-duration: 120s;
+}
+
+.sparkle {
+  position: absolute;
+  color: var(--gold-500);
+  animation: twinkle 3.2s ease-in-out infinite;
+}
+
+.sparkle.s1 {
+  top: 14%;
+  left: 18%;
+  font-size: 22px;
+}
+
+.sparkle.s2 {
+  top: 22%;
+  right: 16%;
+  font-size: 16px;
+  animation-delay: -1s;
+}
+
+.sparkle.s3 {
+  bottom: 18%;
+  left: 12%;
+  font-size: 14px;
+  animation-delay: -2s;
+}
+
+.sparkle.s4 {
+  bottom: 24%;
+  right: 22%;
+  font-size: 24px;
+  animation-delay: -.5s;
+}
+
+.sparkle.s5 {
+  top: 48%;
+  left: 6%;
+  font-size: 12px;
+  animation-delay: -1.6s;
+}
+
+.sparkle.s6 {
+  top: 8%;
+  left: 55%;
+  font-size: 13px;
+  animation-delay: -2.4s;
+}
+
+.heart {
+  position: absolute;
+  bottom: -40px;
+  color: var(--navy-950);
+  opacity: 0;
+  animation: rise 14s linear infinite;
+}
+
+.heart.h1 {
+  left: 10%;
+  font-size: 18px;
+}
+
+.heart.h2 {
+  left: 28%;
+  font-size: 12px;
+  animation-delay: -4s;
+  animation-duration: 16s;
+}
+
+.heart.h3 {
+  left: 72%;
+  font-size: 22px;
+  animation-delay: -8s;
+}
+
+.heart.h4 {
+  left: 86%;
+  font-size: 14px;
+  animation-delay: -2s;
+  animation-duration: 18s;
+}
+
+.heart.h5 {
+  left: 50%;
+  font-size: 16px;
+  animation-delay: -11s;
+  animation-duration: 20s;
+}
+
+@keyframes drift {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(30px, 20px) scale(1.08);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes twinkle {
+
+  0%,
+  100% {
+    opacity: .25;
+    transform: scale(.8) rotate(0deg);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.15) rotate(20deg);
+  }
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: .55;
+  }
+
+  90% {
+    opacity: .4;
+  }
+
+  100% {
+    transform: translateY(-110vh) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+.welcome-float {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  animation: floaty 6s ease-in-out infinite;
+}
+
+.welcome-float .lede {
+  margin: 0 auto;
+}
+
+h2.page-title.welcome-title {
+  font-size: 50px;
+  line-height: 1.08;
+}
+
+.welcome-title em {
+  font-weight: 300;
+  font-style: italic;
+  color: var(--navy-800);
+}
+
+@keyframes floaty {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-16px);
+  }
+}
+
 @media(max-width:880px) {
   body {
     flex-direction: column;
@@ -635,6 +892,21 @@ h2.page-title {
     width: 30px;
     height: 30px;
     font-size: 17px;
+  }
+
+  h2.page-title.welcome-title {
+    font-size: 36px;
+  }
+
+  .welcome-center {
+    margin: -36px -24px;
+    padding: 36px 24px;
+    min-height: 80vh;
+  }
+
+  .ring.r1,
+  .ring.r2 {
+    display: none;
   }
 }
 
